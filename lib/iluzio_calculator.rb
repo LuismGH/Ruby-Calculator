@@ -8,9 +8,17 @@ module IluzioCalculator
     end
   end
 
-  class OperandError < Error
+  class OperandError < Error; end
+
+  class OperandNumericError < OperandError
     def initialize()
       super("Operands are not numeric")
+    end
+  end
+
+  class RootNegativeError < OperandError
+    def initialize()
+      super("Operands cannot be negative")
     end
   end
 end

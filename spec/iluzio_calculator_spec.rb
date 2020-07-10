@@ -7,6 +7,22 @@ RSpec.describe IluzioCalculator do
     expect(IluzioCalculator::Calculator).not_to be nil
   end
 
+  it "has a error class" do
+    expect(IluzioCalculator::Error).not_to be nil
+  end
+
+  it "has a operand error class" do
+    expect(IluzioCalculator::OperandError).not_to be nil
+  end
+
+  it "has a operand numeric error class" do
+    expect(IluzioCalculator::OperandNumericError).not_to be nil
+  end
+
+  it "has a root negative error class" do
+    expect(IluzioCalculator::RootNegativeError).not_to be nil
+  end
+
   before IluzioCalculator::Calculator do
     @calculator = IluzioCalculator::Calculator.new()
   end
@@ -27,6 +43,9 @@ RSpec.describe IluzioCalculator do
 
       it "divides correctly" do
         expect(@calculator.divide(3, 5)).to eq(0)
+        expect {
+          @calculator.divide(8, 0)
+        }.to raise_error(ZeroDivisionError)
       end
 
       it "calculates modulo correctly" do
@@ -41,6 +60,9 @@ RSpec.describe IluzioCalculator do
 
       it "calculates square roots correctly" do
         expect(@calculator.sqrt(9)).to eq(3)
+        expect {
+          @calculator.sqrt(-9)
+        }.to raise_error(IluzioCalculator::RootNegativeError)
       end
 
       it "calculates cube roots correctly" do
@@ -49,10 +71,15 @@ RSpec.describe IluzioCalculator do
 
       it "calculates nth roots correctly" do
         expect(@calculator.nthroot(16, 4)).to eq(2)
+        expect(@calculator.nthroot(243, 5)).to eq(3)
+        expect {
+          @calculator.nthroot(-100, 8)
+        }.to raise_error(IluzioCalculator::RootNegativeError)
       end
 
       it "calculates logarithms correctly" do
         expect(@calculator.log(25, 5)).to eq(2)
+        expect(@calculator.log(100.0, 10.0)).to eq(2)
       end
     end
   end
