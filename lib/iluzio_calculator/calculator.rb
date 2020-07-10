@@ -3,10 +3,14 @@ module IluzioCalculator
     private
     
     def operandControl(x, y)
-      raise OperandError unless x.is_a? Numeric and y.is_a? Numeric
+      return raise OperandError unless x.is_a? Numeric and y.is_a? Numeric
     end
 
     public
+
+    #######################################
+    # BASIC OPERATIONS
+    #######################################
 
     def add(x, y)
       operandControl(x, y)

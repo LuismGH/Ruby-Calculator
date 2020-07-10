@@ -28,6 +28,20 @@ RSpec.describe IluzioCalculator do
       it "divides correctly" do
         expect(@calculator.divide(3, 5)).to eq(0)
       end
+
+      it "calculates modulo correctly" do
+        expect(@calculator.mod(3, 5)).to eq(3)
+      end
+    end
+
+    context "Complex Operations" do
+      it "powers correctly" do
+        expect(@calculator.pow(3, 5)).to eq(243)
+      end
+
+      it "calculates square roots correctly" do
+        expect(@calculator.sqrt(9)).to eq(3)
+      end
     end
   end
 end
