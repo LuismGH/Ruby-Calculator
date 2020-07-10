@@ -2,8 +2,8 @@ module IluzioCalculator
   class Calculator
     private
     
-    def operandControl(x, y)
-      return raise OperandError unless x.is_a? Numeric and y.is_a? Numeric
+    def operandControl(*x)
+      x.each { |number| raise OperandError unless number.is_a? Numeric}
     end
 
     public
@@ -30,6 +30,25 @@ module IluzioCalculator
     def divide(x, y)
       operandControl(x, y)
       return x / y
+    end
+
+    def mod(x, y)
+      operandControl(x, y)
+      return x % y
+    end
+
+    #######################################
+    # COMPLEX OPERATIONS
+    #######################################
+
+    def pow(x, y)
+      operandControl(x, y)
+      return x ** y
+    end
+
+    def sqrt(x)
+      operandControl(x)
+      return Math.sqrt(x)
     end
   end
 end
