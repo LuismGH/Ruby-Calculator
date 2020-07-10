@@ -7,6 +7,10 @@ RSpec.describe IluzioCalculator do
     expect(IluzioCalculator::Calculator).not_to be nil
   end
 
+  it "has a CUI class" do
+    expect(IluzioCalculator::CUI).not_to be nil
+  end
+
   it "has a error class" do
     expect(IluzioCalculator::Error).not_to be nil
   end
@@ -81,6 +85,20 @@ RSpec.describe IluzioCalculator do
         expect(@calculator.log(25, 5)).to eq(2)
         expect(@calculator.log(100.0, 10.0)).to eq(2)
       end
+    end
+  end
+
+  before IluzioCalculator::CUI do
+    @interface = IluzioCalculator::CUI.new()
+  end
+
+  describe IluzioCalculator::CUI do
+    it "has a calculator" do
+      expect(@interface.calculator).not_to be nil
+    end
+
+    it "can make operations" do
+      expect(@interface.operation("3 + 5")).to eq(15)
     end
   end
 end
