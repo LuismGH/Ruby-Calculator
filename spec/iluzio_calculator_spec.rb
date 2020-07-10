@@ -42,6 +42,18 @@ RSpec.describe IluzioCalculator do
       it "calculates square roots correctly" do
         expect(@calculator.sqrt(9)).to eq(3)
       end
+
+      it "calculates cube roots correctly" do
+        expect(@calculator.cbrt(8)).to eq(2)
+      end
+
+      it "calculates nth roots correctly" do
+        expect(@calculator.nthroot(16, 4)).to eq(2)
+      end
+
+      it "calculates logarithms correctly" do
+        expect(@calculator.log(25, 5)).to eq(2)
+      end
     end
   end
 end
