@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use the Ruby Interactive Calculator, create a `CUI` from the module `IluzioCalculator` and use the method `menu()` to activate your calculator. To exit, type `exit` on the menu.
 
 ## Development
 

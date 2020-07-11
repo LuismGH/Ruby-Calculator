@@ -28,7 +28,7 @@ RSpec.describe IluzioCalculator do
   end
 
   before IluzioCalculator::Calculator do
-    @calculator = IluzioCalculator::Calculator.new()
+    @calculator = IluzioCalculator::Calculator.new
   end
 
   describe IluzioCalculator::Calculator do
@@ -89,7 +89,7 @@ RSpec.describe IluzioCalculator do
   end
 
   before IluzioCalculator::CUI do
-    @interface = IluzioCalculator::CUI.new()
+    @interface = IluzioCalculator::CUI.new
   end
 
   describe IluzioCalculator::CUI do
@@ -97,8 +97,10 @@ RSpec.describe IluzioCalculator do
       expect(@interface.calculator).not_to be nil
     end
 
-    it "can make operations" do
-      expect(@interface.operation("3 + 5")).to eq(15)
+    it "can make simple operations" do
+      expect(@interface.calculate("3 + 5")).to eq(8)
+      expect(@interface.calculate("3 / 5")).to eq(0)
+      expect(@interface.calculate("3 % 5")).to eq(3)
     end
   end
 end

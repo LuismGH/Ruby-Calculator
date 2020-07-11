@@ -1,5 +1,6 @@
 require "iluzio_calculator/version"
 require "iluzio_calculator/calculator"
+require "iluzio_calculator/cui"
 
 module IluzioCalculator
   class Error < StandardError
