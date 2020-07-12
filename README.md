@@ -1,8 +1,8 @@
-# Ruby Calculator
+# Interactive Ruby Calculator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/iluzio_calculator`. To experiment with that code, run `bin/console` for an interactive prompt.
+Interactive Ruby Calculator (IRC) was made with the goal of having an easy-to-use and accessible calculator, capable of developing basic and complex operations like a scientific calculator, like sums, subtraction, divisions, powers, square roots and more...
 
-TODO: Delete this and the text above, and describe your gem
+The challenge of this project is to implement an interface that is capable of recognizing multiple operations in just one line of text and solving them precisely and in the correct order.
 
 ## Installation
 
