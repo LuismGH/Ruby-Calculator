@@ -98,9 +98,14 @@ RSpec.describe IluzioCalculator do
     end
 
     it "can make simple operations" do
-      expect(@interface.calculate("3 + 5")).to eq(8)
+      expect(@interface.calculate("3.1 + 5")).to eq(8.1)
       expect(@interface.calculate("3 / 5")).to eq(0)
       expect(@interface.calculate("3 % 5")).to eq(3)
+    end
+
+    it "can make operations of several operands (without precedence)" do
+      expect(@interface.calculate("3 % 5 + 12")).to eq(15)
+      expect(@interface.calculate("3 % 5 + 12 - 2 * 10")).to eq(130)
     end
   end
 end

@@ -8,3 +8,10 @@
 Changes:
 
   - Added a simple interface for integers
+
+# 0.2.1 (12/7/2020)
+
+Changes:
+
+  - Added a simple interface for integers and floats
+  - Able to do operations with multiple operators

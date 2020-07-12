@@ -21,9 +21,21 @@ module IluzioCalculator
       # Delete all whitespaces
       line = line.delete(" ")
 
-      operand1 = line.to_i; line = line.gsub(operand1.to_s, "")
-      operator = line[0]; line = line.gsub(operator, "")
-      operand2 = line.to_i; line = line.gsub(operand2.to_s, "")
+      if line.to_f % 1 != 0
+        operand1 = line.to_f
+      else
+        operand1 = line.to_i
+      end
+      line = line.gsub(/\A(\+|\-)?(\d+(\.\d+)?)/, "")
+
+      operator = line.scan(/\A(\D+)/).join(""); line = line.gsub(operator, "")
+
+      if line.to_f % 1 != 0
+        operand2 = line.to_f
+      else
+        operand2 = line.to_i
+      end
+      line = line.gsub(/\A(\+|\-)?(\d+(\.\d+)?)/, "")
 
       case operator
       when "+"
@@ -49,7 +61,12 @@ module IluzioCalculator
       #    |y| y = y.shift
       #  }
       #}
-      return @Answer
+      if !line.empty?
+        line = @Answer.to_s + line
+        return calculate(line)
+      else
+        return @Answer
+      end
     end
   end
 end
